@@ -235,7 +235,7 @@ function initPrintEvent() {
         })
         .catch((err) => {
                    const errorMessage = err && err.message ? err.message : (err ? String(err) : '地址错误');
-                   //添加信息错误报错的情况
+                
   console.log(
     `${data.replyId ? "中转服务" : "插件端"} ${socket.id} 模板 【${
       data.templateId
