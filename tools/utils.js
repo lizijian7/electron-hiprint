@@ -352,10 +352,10 @@ function initServeEvent(server) {
       // 弹出连接成功通知
       const notification = new Notification({
         title: "新的连接",
-        body: `已建立新的连接，当前连接数：${server.engine.clientsCount}`,
+        body: `已建立连接`,
       });
       // 显示通知
-      notification.show();
+      // notification.show();
     }
 
     // 向 client 发送打印机列表

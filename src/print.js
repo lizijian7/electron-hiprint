@@ -234,21 +234,20 @@ function initPrintEvent() {
           logPrintResult("success");
         })
         .catch((err) => {
-          console.log(
-            `${data.replyId ? "中转服务" : "插件端"} ${socket.id} 模板 【${
-              data.templateId
-            }】 打印失败，打印类型：URL_PDF，打印机：${deviceName}，原因：${
-              err.message
-            }`,
-          );
-          socket &&
-            socket.emit("error", {
-              msg: "打印失败: " + err.message,
-              templateId: data.templateId,
-              replyId: data.replyId,
-            });
-          logPrintResult("failed", err.message);
-        })
+                   const errorMessage = err && err.message ? err.message : (err ? String(err) : '地址错误');
+  console.log(
+    `${data.replyId ? "中转服务" : "插件端"} ${socket.id} 模板 【${
+      data.templateId
+    }】 打印失败，打印类型：URL_PDF，打印机：${deviceName}，原因：${errorMessage}`,
+  );
+  socket &&
+    socket.emit("error", {
+      msg: "打印失败: " + errorMessage,
+      templateId: data.templateId,
+      replyId: data.replyId,
+    });
+  logPrintResult("failed", errorMessage);
+})
         .finally(() => {
           if (data.taskId) {
             // 通过 taskMap 调用 task done 回调
