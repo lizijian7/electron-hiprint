@@ -1,3 +1,30 @@
+##### 打包注意事项
+1、打包到windows 和linux系统 上传本文件到github中使用tags方式发布自动打包构建
+2、打包到国产龙芯系统需在国产机上进行打包。
+  ## 配置 均为国产适配。其他系统不需要进行electorn版本和node版本配置
+  2.1node版本为22.16.0 
+  具体步骤如下：
+  2.1创建空文件夹
+  ## 配置 npm 仓库地址
+[test@bogon:~]$ npm config set registry https://registry.loongnix.cn:4873/
+## 安装 Electron-packager
+[test@bogon:~]$ npm install @electron/packager@18.3.4
+## 安装 Electron-installer-debian
+[test@bogon:~]$ npm install electron-installer-debian
+[test@bogon:~]$ git clone 项目地址
+[test@bogon:~]$ cd 进入项目
+
+## 在当前目录安装 Electron  v20.0.3 
+[test@bogon:~/batch-print]$ export ELECTRON_MIRROR=https://ftp.loongnix.cn/electron/LoongArch/
+[test@bogon:~/batch-print]$ export electron_use_remote_checksums=1
+[test@bogon:~/batch-print]$ npm install electron@20.0.3
+注意npm下载electorn的镜像地址需要修改。
+## 生成打包工程
+[test@bogon:~/batch-print]$ ../node_modules/@electron/packager/bin/electron-packager.js  . batch-print --platform linux --arch loong64 --out dist/
+## 生成DEB文件
+
+[test@bogon:~/batch-print]$ ../node_modules/electron-installer-debian/src/cli.js --src dist/batch-print-linux-loong64/ --dest dist/installers/ --arch loongarch64
+---------------------------------------------------------------------------------
 # electron-hiprint
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CcSimple/electron-hiprint)

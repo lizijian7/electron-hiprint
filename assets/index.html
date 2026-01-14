@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Electron-hiprint</title>
+     <title>LIMS-PRINT</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./element-ui/index.css" />
     <script src="./js/vue.min.js"></script>
@@ -68,7 +68,7 @@
             插件版本：{{ pluginVersion }}
           </div>
           <div class="message">
-            客户端版本：{{ version }}
+            宏恩网络科技有限公司{{ version }}
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@
 
       const { version } = require("../package.json");
 
-      document.title = store.get("mainTitle") || "Electron-hiprint";
+      document.title = "Electron-hiprint";
 
       let ipc = ipcRenderer;
       new Vue({

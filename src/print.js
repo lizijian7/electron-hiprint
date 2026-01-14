@@ -233,8 +233,7 @@ function initPrintEvent() {
           }
           logPrintResult("success");
         })
-        .catch((err) => {
-                   const errorMessage = err && err.message ? err.message : (err ? String(err) : '地址错误');
+        .catch((err) => {const errorMessage = err && err.message ? err.message : (err ? String(err) : '地址错误');
                 
   console.log(
     `${data.replyId ? "中转服务" : "插件端"} ${socket.id} 模板 【${
